@@ -1,0 +1,10 @@
+= form_for @io do |f|
+  - if @io.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@io.errors.count, "error")} prohibited this io from being saved:"
+      %ul
+        - @io.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>ParticleFire</title>
+	<%= csrf_meta_tags %>
+
+	<%= render 'layouts/head_layout' %>
+  </head>
+
+  <body class="body-main">
+
+	<div class="navbar navbar-default navbar-fixed-top">
+	  <div class="container-fluid">
+		<div class="navbar-header"><a id="brand" class="navbar-brand"><span>particle</span><span class="white">Fire</span><i class="primary-color fa fa-fire"></i></a></div>
+		<div class="navbar-collapse collapse">
+
+			<%- if current_user %>
+				<ul class="nav navbar-nav">
+					<li><a href="/">Home</a></li>
+					<li>
+						<a href="/users/edit"><i class="fa fa-gear"></i>&nbsp;
+							Settings
+						</a>
+					<li>
+						<a href="/devices/new"><i class="fa fa-user"></i>&nbsp;
+							Devices
+						</a>
+					</li>
+					</li>
+					<%- if current_user.master_admin %>
+						<li>
+							<a href="/admin/users"><i class="fa fa-user"></i>&nbsp;
+								Users
+							</a>
+						</li>
+					<%- end %>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+					</li>
+				</ul>
+				<p class="navbar-text navbar-right">Welcome <%= current_user.email %></p>
+			<%- else %>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/">Sign In </a></li>
+				</ul>
+			<%- end %>
+
+		</div>
+	  </div>
+	</div>
+	<div id="main" class="container-fluid container-main">
+
+		<%= yield %>
+
+	</div>
+
+	<div class="footer-wrapper">
+	  <div class="footer-content">
+		<p>
+		  &copy; 2016
+		  &nbsp;<a class="light-grey">Brad Carlson</a>
+		</p>
+	  </div>
+	</div>
+
+  </body>
+</html>

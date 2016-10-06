@@ -1,0 +1,19 @@
+%h1 Listing ios
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @ios.each do |io|
+      %tr
+        %td= link_to 'Show', io
+        %td= link_to 'Edit', edit_io_path(io)
+        %td= link_to 'Destroy', io, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Io', new_io_path

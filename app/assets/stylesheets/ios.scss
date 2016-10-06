@@ -1,0 +1,111 @@
+@import "variables";
+
+#ios{
+	background-color:$primary-bg-color;
+
+	h3{
+		margin-top:0;
+	}
+
+	td{
+		border-top:0;
+		padding:10px 15px;
+	}
+
+	.cell-io-name{
+		width:150px;
+		background-color:#FFF;
+		color: $dark;
+	}
+
+	.cell-io-content{
+		padding:10px 15px;
+	}
+
+	tbody{
+		td.cell-io-name{
+			.io-edit{
+				display:none;
+			}
+		}
+		td.cell-io-name:hover{
+			cursor: pointer;
+			background-color: #4e5d6c;
+			color: #FFF;
+
+			.io-edit{
+				display:inline;
+			}
+			.fa{
+				color: #FFF;
+			}
+		}
+
+		tr:first-child .cell-io-name{
+			border-top-right-radius: 10px;
+		}
+	}
+
+	tfoot{
+		tr{
+			background-color:$very-dark;
+
+			td.cell-io-new {
+				background-color:$very-dark;
+				padding:0;
+
+				.io-new{
+					margin-left:0;
+					background-color:#FFF;
+					border-bottom-right-radius: 10px;
+					padding: 6px;
+
+					.fa{
+						color:#FFF !important;
+					}
+
+					.btn{
+						margin-left:0;
+					}
+				}
+			}
+			
+			.cell-io-content{
+				background:none;
+			}
+		}
+	}
+
+	tr:nth-child(1) .cell-io-name .fa{
+		color:$color1;
+	}
+	tr:nth-child(2) .cell-io-name .fa{
+		color:$color2;
+	}
+	tr:nth-child(3) .cell-io-name .fa{
+		color:$color3;
+	}
+	tr:nth-child(4) .cell-io-name .fa{
+		color:$color4;
+	}
+	tr:nth-child(5) .cell-io-name .fa{
+		color:$color5;
+	}
+
+	.btn-new-io{
+		display:block;
+		width:auto;
+	}
+}
+
+.io-type-fields{
+	.well{
+		padding-bottom:0;
+		padding-top:0;
+		margin-bottom:0;
+	}
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary{
+	background-color: $success-color;
+}

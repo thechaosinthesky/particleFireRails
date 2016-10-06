@@ -1,0 +1,31 @@
+= form_for @device do |f|
+  - if notice
+    .alert.alert-success= notice
+  - if @device.errors.any?
+    .alert.alert-danger
+      %h2= "#{pluralize(@device.errors.count, "error")} prohibited this device from being saved:"
+      %ul
+        - @device.errors.full_messages.each do |msg|
+          %li= msg
+
+  .row
+    .col-xs-12
+      %legend DEVICES
+      %table.table.table-striped
+        %tbody
+          - current_user.devices.each do |device|
+            %tr
+              %td{:valign => "center", :style => "vertical-align:middle"} #{device.name} - #{device.external_id}
+              %td 
+                = link_to device_path(device), :class => "btn btn-danger pull-right", data: {:confirm => 'Are you sure?'}, :method => :delete do
+                  %i.fa.fa-trash
+            
+        %tfoot
+          %tr 
+            %td{:colspan => 2}
+              %br
+              .form-group
+                = f.text_field :name, :class => "form-control", :placeholder => "Device Name"
+              .form-group
+                = f.text_field :external_id, :class => "form-control", :placeholder => "Device ID"
+              = f.submit 'Save', :class => 'btn btn-primary'

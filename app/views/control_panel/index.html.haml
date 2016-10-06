@@ -1,0 +1,21 @@
+.row
+  .col-xs-12
+    #profiles
+      .profile-tabs
+        %button.btn.btn-primary.pull-right.add-profile
+          %i.fa.fa-plus-circle
+           
+          PROFILE
+        %button.btn.btn-danger.pull-right.delete-profile.hidden
+          %i.fa.fa-trash
+        %ul.nav.nav-tabs.profile-list{:role => "tablist"}
+        .profile-tab-content.tab-content
+
+:javascript
+  $(function() {
+
+    ParticleFire.initControlPanel({
+      "user": new ParticleFire.Models.User({id: "#{current_user.id}", _id: "#{current_user.id}", pin: "#{current_user.pin}", "username": "#{current_user.email}"})
+    });
+
+  });
