@@ -6,6 +6,17 @@ Rails.application.routes.draw do
 
   get '/control_panel', to: 'control_panel#index'
 
-  resources :devices
+  resources :users do
+    resources :devices
+    resources :profiles, only: [:index, :new, :create]
+  end
+
+  resources :profiles, only: [:show, :edit, :update, :destroy] do
+    resources :ios, only: [:index, :new, :create]
+  end
+
+  resources :ios, only: [:show, :edit, :update, :destroy] 
+  get 'ios/:id/status', to: 'ios#status'
+  post 'ios/:id', to: 'ios#trigger'
 
 end

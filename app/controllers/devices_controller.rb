@@ -1,10 +1,14 @@
 class DevicesController < AuthenticatedController
-  before_action :set_device, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :user
+  # load_resource :user
+  load_and_authorize_resource :device, :through => :user
+
+  # before_action :set_device, only: [:show, :edit, :update, :destroy]
 
   # GET /devices
   # GET /devices.json
   def index
-    @devices = Device.all
+    # @devices = Device.all
   end
 
   # GET /devices/1
@@ -29,7 +33,7 @@ class DevicesController < AuthenticatedController
 
     respond_to do |format|
       if @device.save
-        format.html { redirect_to new_device_path, notice: 'Device was successfully created.' }
+        format.html { redirect_to new_user_device_path(current_user), notice: 'Device was successfully created.' }
         format.json { render :show, status: :created, location: @device }
       else
         format.html { render :new }
@@ -57,7 +61,7 @@ class DevicesController < AuthenticatedController
   def destroy
     @device.destroy
     respond_to do |format|
-      format.html { redirect_to new_device_path, notice: 'Device was successfully destroyed.' }
+      format.html { redirect_to new_user_device_path(current_user), notice: 'Device was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

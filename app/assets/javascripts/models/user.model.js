@@ -1,5 +1,4 @@
 ParticleFire.Models.User = Backbone.Model.extend({
-  idAttribute: "_id",
 
   defaults: {
     username: '',
@@ -33,9 +32,9 @@ ParticleFire.Models.User = Backbone.Model.extend({
   },
 
   url: function() {
-    var base = '/register';
+    var base = '/users';
     if(this.id){
-      base = '/accounts/' + this.id;
+      base += '/' + this.id;
     }
     return base;
   },
@@ -47,17 +46,17 @@ ParticleFire.Models.User = Backbone.Model.extend({
         required: true,
         msg: "Please enter a password."});
       this.validation.username = [
-      {
-       required: true,
-       msg: 'Please enter an email address'
-      },{
-       pattern: 'email',
-       msg: 'Please enter a valid email'
-      }
-    ]
+        {
+         required: true,
+         msg: 'Please enter an email address'
+        },{
+         pattern: 'email',
+         msg: 'Please enter a valid email'
+        }
+      ];
     }
     else{
-      this.devices.url = '/account/' + this.id + '/devices';
+      this.devices.url = '/users/' + this.id + '/devices';
     }
   }
 });
@@ -65,7 +64,7 @@ ParticleFire.Models.User = Backbone.Model.extend({
 ParticleFire.Collections.User = Backbone.Collection.extend({
   model: ParticleFire.Models.User,
   url: function() {
-    return '/accounts';
+    return '/users';
   },
   initialize: function() {
 

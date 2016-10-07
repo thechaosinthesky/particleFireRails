@@ -1,7 +1,6 @@
 ParticleFire.Models.IO = Backbone.Model.extend({
-  idAttribute: "_id",
 
-	types:[
+	io_types:[
 		{
       "name":"toggle", 
       "label":"Toggle Switch",
@@ -81,7 +80,7 @@ ParticleFire.Models.IO = Backbone.Model.extend({
 
   defaults: {
     name: '',
-    type: null,
+    io_type: null,
     device_id: '',
     settings: {}
   },
@@ -91,7 +90,7 @@ ParticleFire.Models.IO = Backbone.Model.extend({
       required: true,
       msg: 'Please enter a name.'
     },
-    type: {
+    io_type: {
       required: true,
       msg: 'Please select an IO type.'
     },
@@ -103,14 +102,17 @@ ParticleFire.Models.IO = Backbone.Model.extend({
 
   url: function() {
     var base = '/ios';
-    if(this.id){
+    if(!this.id){
+      base = '/profiles/' + this.profile_id + '/ios'
+    }
+    else{
       base += '/' + this.id;
     }
     return base;
   },
 
-  initialize: function() {
-
+  initialize: function(options) {
+    this.profile_id = options.profile_id;
   },
 
   triggerAction: function(obj) {
@@ -147,8 +149,7 @@ ParticleFire.Models.IO = Backbone.Model.extend({
 ParticleFire.Collections.IO = Backbone.Collection.extend({
   model: ParticleFire.Models.IO,
   url: function() {
-    return '/ios?profile_id=' + this.profile_id;
-    // return '/profiles/' + this.profile_id + '/io';
+    return '/profiles/' + this.profile_id + '/ios'
   },
   initialize: function(array, options) {
   	this.profile_id = options.profile_id;

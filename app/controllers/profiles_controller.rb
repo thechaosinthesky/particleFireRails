@@ -1,10 +1,12 @@
-class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+class ProfilesController < AuthenticatedController
+  load_and_authorize_resource :user
+  load_and_authorize_resource :profile, :through => :user
+  # before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+    # @profiles = Profile.all
   end
 
   # GET /profiles/1
@@ -28,6 +30,9 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
+
+        @user.profiles << @profile
+
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
@@ -69,6 +74,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.fetch(:profile, {})
+      params.fetch(:profile, {}).permit!
     end
 end

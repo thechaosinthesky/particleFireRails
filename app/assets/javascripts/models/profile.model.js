@@ -1,5 +1,4 @@
 ParticleFire.Models.Profile = Backbone.Model.extend({
-  idAttribute: "_id",
 
   defaults: {
     name: ''
@@ -13,7 +12,7 @@ ParticleFire.Models.Profile = Backbone.Model.extend({
   },
 
   url: function() {
-    var base = '/profiles';
+    var base = 'users/' + ParticleFire.App.user.id +  '/profiles';
     if(this.id){
       base += '/' + this.id;
     }
@@ -28,7 +27,7 @@ ParticleFire.Models.Profile = Backbone.Model.extend({
 ParticleFire.Collections.Profile = Backbone.Collection.extend({
   model: ParticleFire.Models.Profile,
   url: function() {
-    return '/profiles';
+    return 'users/' + ParticleFire.App.user.id +  '/profiles';
   },
   initialize: function() {
 

@@ -17,7 +17,7 @@ ParticleFire.Views.IO = Backbone.View.extend({
     this.model = options.model;
     this.$parentEl = options.$parentEl;
     this.profileView = options.profileView;
-    this.type = this.model.get("type");
+    this.io_type = this.model.get("io_type");
 
     this.el = this.typeTemplates['loader'](this.model.toJSON());
     this.$el = $(this.el);
@@ -40,7 +40,7 @@ ParticleFire.Views.IO = Backbone.View.extend({
   render: function() {
     console.log("RENDERNOW");
   	var obj = this.model.toJSON();
-    this.$io.html(this.typeTemplates[this.model.get('type')](obj));
+    this.$io.html(this.typeTemplates[this.model.get('io_type')](obj));
     this.events = $.extend({}, this.baseEvents, this.events);
   	this.delegateEvents();
 

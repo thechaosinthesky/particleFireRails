@@ -1,2 +1,3 @@
-json.extract! io, :id, :created_at, :updated_at
-json.url io_url(io, format: :json)
+json.extract! io, :id, :name, :io_type, :created_at, :updated_at
+
+json.settings JSON.parse(io.settings)

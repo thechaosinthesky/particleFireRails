@@ -22,9 +22,9 @@
 							Settings
 						</a>
 					<li>
-						<a href="/devices/new"><i class="fa fa-user"></i>&nbsp;
-							Devices
-						</a>
+						<%= link_to new_user_device_path(current_user) do %>
+							<i class="fa fa-user"></i>&nbsp;Devices
+						<% end %>
 					</li>
 					</li>
 					<%- if current_user.master_admin %>

@@ -1,5 +1,7 @@
-class IosController < ApplicationController
-  before_action :set_io, only: [:show, :edit, :update, :destroy]
+class IosController < AuthenticatedController
+  load_and_authorize_resource :profile
+  load_and_authorize_resource :io, :through => :profile
+  # before_action :set_io, only: [:show, :edit, :update, :destroy]
 
   # GET /ios
   # GET /ios.json
@@ -27,6 +29,9 @@ class IosController < ApplicationController
     @io = Io.new(io_params)
 
     respond_to do |format|
+
+      @profile.ios << @io
+
       if @io.save
         format.html { redirect_to @io, notice: 'Io was successfully created.' }
         format.json { render :show, status: :created, location: @io }
@@ -61,6 +66,14 @@ class IosController < ApplicationController
     end
   end
 
+  def status
+    
+  end
+
+  def trigger
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_io
@@ -69,6 +82,9 @@ class IosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def io_params
-      params.fetch(:io, {})
+      io_params_hash = params.fetch(:io, {}).permit!
+
+      io_params_hash[:settings] = io_params_hash[:settings].to_json
+      p io_params_hash
     end
 end

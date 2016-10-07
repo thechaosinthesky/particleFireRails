@@ -2,7 +2,7 @@ ParticleFire.Templates.Loader = '<span>LOADING&nbsp;&nbsp;&nbsp;<i class="fa fa-
 
 ParticleFire.Templates.Loader_Profiles = '<li class="active"><a>LOADING</a></li> <li><a><span><i class="fa fa-fire fa-spin"></i></span></a></li>';
 
-ParticleFire.Templates.Modal = '
+ParticleFire.Templates.Modal = '\
 <div class="modal in" tabindex="-1" role="dialog" aria-labelledby="Modal Dialog">\
   <div class="modal-dialog modal-lg">\
     <div class="modal-content">\
@@ -14,7 +14,7 @@ ParticleFire.Templates.Modal = '
       <div class="modal-footer"> <div class="modal-buttons"> <button class="pull-right btn btn-primary btn-save"><%= submitLabel %></button> <button class="pull-right btn btn-default btn-cancel">CANCEL</button> <button class="pull-right btn btn-danger btn-delete hidden">DELETE</button> </div> </div> </div> </div> </div>\
 ';
 
-ParticleFire.Templates.ProfileTab = '
+ParticleFire.Templates.ProfileTab = '\
 <li class="<%= classes %>" data-profile-id="<%= profile_id %>" data-profile-view-id="<%= profile_content_id %>" role="presentation">\
 <a href="#<%= profile_content_id %>" aria-controls="#<%= profile_content_id %>" role="tab" data-toggle="tab">\
 <%= name %>\
@@ -22,18 +22,18 @@ ParticleFire.Templates.ProfileTab = '
 </li>\
 ';
 
-ParticleFire.Templates.NoProfiles = '
+ParticleFire.Templates.NoProfiles = '\
 <div class="well">\
 <p>You haven\'t added any profiles yet.</p>\
 </div>\
 ';
 
-ParticleFire.Templates.TabProfileContent = '
+ParticleFire.Templates.TabProfileContent = '\
 <div role="tabpanel" class="tab-pane <%= classes %>" id="<%= profile_content_id %>">\
 </div>\
 ';
 
-ParticleFire.Templates.Profile = '
+ParticleFire.Templates.Profile = '\
 <table id="ios" class="table table-striped">\
   <tbody class="io-list">\
     <tr>\
@@ -58,7 +58,7 @@ ParticleFire.Templates.Profile = '
 </table>\
 ';
 
-ParticleFire.Templates.ProfileEditContent = '
+ParticleFire.Templates.ProfileEditContent = '\
 <form class="form-horizontal">\
   <div class="form-group">\
     <label for="profile-name" class="col-sm-2 control-label">Profile Name:</label>\
@@ -69,7 +69,7 @@ ParticleFire.Templates.ProfileEditContent = '
 </form>\
 ';
 
-ParticleFire.Templates.PinVerification = '
+ParticleFire.Templates.PinVerification = '\
 <form class="form-horizontal">\
   <div class="form-group">\
     <label id="user-pin-label" for="profile-name" class="col-sm-2 control-label" onclick="$(\'#user-pin\').focus()">Pin:</label>\
@@ -81,7 +81,7 @@ ParticleFire.Templates.PinVerification = '
 </form>\
 ';
 
-ParticleFire.Templates.PinVerification1 = '
+ParticleFire.Templates.PinVerification1 = '\
 <form class="form-horizontal">\
   <div class="form-group">\
     <label id="user-pin-label" for="profile-name" class="col-sm-2 control-label" onclick="$(\'#user-pin\').focus()">Pin:</label>\

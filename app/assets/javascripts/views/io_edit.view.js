@@ -44,14 +44,14 @@ ParticleFire.Views.IOEdit = ParticleFire.Views.Modal.extend({
     _.bindFormView(this);
     Backbone.Validation.bind(this);
 
-    this.deviceDropdown = new BootstrapSelect({el: '.modal.in .io-devices-select', value: device_id, values: ParticleFire.App.user.devices.toJSON(), labelAttribute:"external_id", valueAttribute:"_id"});
-    this.typesDropdown = new BootstrapSelect({el: '.modal.in .io-types-select', values: this.model.types, value: this.model.get("type"), valueAttribute:"name"});
+    this.deviceDropdown = new BootstrapSelect({el: '.modal.in .io-devices-select', value: device_id, values: ParticleFire.App.user.devices.toJSON(), labelAttribute:"external_id", valueAttribute:"id"});
+    this.typesDropdown = new BootstrapSelect({el: '.modal.in .io-types-select', values: this.model.io_types, value: this.model.get("io_type"), valueAttribute:"name"});
     this.typesDropdown.bind('change', this.renderIOFields, this);
     this.delegateEvents();
   },
 
   renderIOFields: function(typeName) {
-    var type = _.find(this.model.types, function(type){
+    var type = _.find(this.model.io_types, function(type){
       return type.name == typeName;
     });
 

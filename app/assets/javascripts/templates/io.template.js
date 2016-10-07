@@ -1,45 +1,45 @@
-ParticleFire.Templates.IO_loader = '
+ParticleFire.Templates.IO_loader = '\
 <tr>\
   <td class="cell-io-name cell-io-edit active">\
     <i class="fa fa-gg"></i>&nbsp;&nbsp;\
     <%= name %>\
     <span class="io-edit pull-right"><i class="fa fa-pencil"></i></span>\
   </td>\
-  <td id="io-<%= _id %>" class="cell-io-content"><span>LOADING&nbsp;&nbsp;&nbsp;<i class="fa fa-fire fa-spin"></i></span></td>\
+  <td id="io-<%= id %>" class="cell-io-content"><span>LOADING&nbsp;&nbsp;&nbsp;<i class="fa fa-fire fa-spin"></i></span></td>\
 </tr>\
 ';
 
-ParticleFire.Templates.IO = '
+ParticleFire.Templates.IO = '\
 <tr>\
   <td class="cell-io-name cell-io-edit active">\
     <i class="fa fa-gg"></i>&nbsp;&nbsp;\
     <%= name %>\
     <span class="io-edit pull-right"><i class="fa fa-pencil"></i></span>\
   </td>\
-  <td id="<%= _id %>" class="cell-io-content">Open/Closed</td>\
+  <td id="<%= id %>" class="cell-io-content">Open/Closed</td>\
 </tr>\
 ';
 
-ParticleFire.Templates.IO_trigger = '
+ParticleFire.Templates.IO_trigger = '\
 <tr>\
   <td class="cell-io-name cell-io-edit active">\
     <i class="fa fa-gg"></i>&nbsp;&nbsp;\
     <%= name %>\
     <span class="io-edit pull-right"><i class="fa fa-pencil"></i></span>\
   </td>\
-  <td id="<%= _id %>" class="cell-io-content"><button type="button" class="io-trigger btn btn-danger"><i class="fa fa-lg fa-bolt danger"></i></button></td>\
+  <td id="<%= id %>" class="cell-io-content"><button type="button" class="io-trigger btn btn-danger"><i class="fa fa-lg fa-bolt danger"></i></button></td>\
 </tr>\
 ';
 
-ParticleFire.Templates.IO_toggle = '
-<input class="io-toggle io-action" type="checkbox" name="io-<%= _id %>" data-io-type="toggle" data-io-id="<%= _id %>" data-on-text="<%= settings.onLabel %>" data-off-text="<%= settings.offLabel %>" <%= state ? "checked" : "" %> />\
+ParticleFire.Templates.IO_toggle = '\
+<input class="io-toggle io-action" type="checkbox" name="io-<%= id %>" data-io-type="toggle" data-io-id="<%= id %>" data-on-text="<%= settings.onLabel %>" data-off-text="<%= settings.offLabel %>" <%= state ? "checked" : "" %> />\
 ';
 
-ParticleFire.Templates.IO_status = '
+ParticleFire.Templates.IO_status = '\
 <h3><span class=\'label <%= state ? "label-success" : "label-default" %>\'><%= state ? settings.onLabel : settings.offLabel %></span></h3>\
 ';
 
-ParticleFire.Templates.IOEditContent = '
+ParticleFire.Templates.IOEditContent = '\
 <form class="form-horizontal">\
   <div class="form-group">\
     <label for="io-name" class="col-sm-2 control-label">I/O Name:</label>\
@@ -57,7 +57,7 @@ ParticleFire.Templates.IOEditContent = '
   <div class="form-group">\
     <label for="io-type" class="col-sm-2 control-label">I/O Type:</label>\
     <div class="col-sm-10">\
-      <select id="io-type" name="type" data-error-method="growl" class="form-control io-types-select"></select>\
+      <select id="io-type" name="io_type" data-error-method="growl" class="form-control io-types-select"></select>\
     </div>\
   </div>\
   <div class="io-type-fields">\
@@ -65,7 +65,7 @@ ParticleFire.Templates.IOEditContent = '
 </form>\
 ';
 
-ParticleFire.Templates.IOEditType_trigger = '
+ParticleFire.Templates.IOEditType_trigger = '\
 <div class="form-group">\
   <label for="io-device-name" class="col-sm-2 control-label">Device:</label>\
   <div class="col-sm-10">\
@@ -75,7 +75,7 @@ ParticleFire.Templates.IOEditType_trigger = '
 </div>\
 ';
 
-ParticleFire.Templates.IOEditType_toggle = '
+ParticleFire.Templates.IOEditType_toggle = '\
 <div class="well">\
   <div>\
     <div class="col-sm-10 col-sm-offset-2 text-info">\
@@ -83,16 +83,16 @@ ParticleFire.Templates.IOEditType_toggle = '
     </div>\
   </div>\
   <div class="form-group">\
-    <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#collapse-settings">Advanced Settings&nbsp;&nbsp;<i class="fa fa-chevron-down"></i></button>
+    <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#collapse-settings">Advanced Settings&nbsp;&nbsp;<i class="fa fa-chevron-down"></i></button>\
   </div>\
   <div class="collapse" id="collapse-settings">\
     <div class="form-group">\
-      <div class="checkbox col-sm-10 col-sm-offset-2">
-        <label for="settings-requirePin">
-          <input type="checkbox" id="settings-requirePin" name="settings.requirePin" <%= requirePin ? "checked" : "" %> /> Require Pin Validation
-        </label>
-      </div>
-    </div>
+      <div class="checkbox col-sm-10 col-sm-offset-2">\
+        <label for="settings-requirePin">\
+          <input type="checkbox" id="settings-requirePin" name="settings.requirePin" <%= requirePin ? "checked" : "" %> /> Require Pin Validation\
+        </label>\
+      </div>\
+    </div>\
     <div class="form-group">\
       <label for="settings-onAction" class="col-sm-2 control-label">Toggle On Action:</label>\
       <div class="col-sm-10">\
@@ -143,7 +143,7 @@ ParticleFire.Templates.IOEditType_toggle = '
       <div class="col-sm-10">\
         <input type="input" class="form-control" data-error-method="growl" id="settings-onLabel" name="settings.onLabel" value="<%= onLabel %>" aria-describedby="onLabel-help">\
         <span id="onLabel-help" class="help-block">\
-          The label to display on the toggle switch when the device status is \'active\'.\
+          The label to display on the toggle switch when the device status is "active".\
         </span>\
       </div>\
     </div>\
@@ -152,7 +152,7 @@ ParticleFire.Templates.IOEditType_toggle = '
       <div class="col-sm-10">\
         <input type="input" class="form-control" data-error-method="growl" id="settings-offLabel" name="settings.offLabel" value="<%= offLabel %>" aria-describedby="offLabel-help">\
         <span id="offLabel-help" class="help-block">\
-          The label to display on the toggle switch when the device status is \'inactive\'.\
+          The label to display on the toggle switch when the device status is "inactive".\
         </span>\
       </div>\
     </div>\
@@ -160,7 +160,7 @@ ParticleFire.Templates.IOEditType_toggle = '
 </div>\
 ';
 
-ParticleFire.Templates.IOEditType_status = '
+ParticleFire.Templates.IOEditType_status = '\
 <div class="well">\
   <div>\
     <div class="col-sm-10 col-sm-offset-2 text-info">\
@@ -168,7 +168,7 @@ ParticleFire.Templates.IOEditType_status = '
     </div>\
   </div>\
   <div class="form-group">\
-    <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#collapse-settings">Advanced Settings&nbsp;&nbsp;<i class="fa fa-chevron-down"></i></button>
+    <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#collapse-settings">Advanced Settings&nbsp;&nbsp;<i class="fa fa-chevron-down"></i></button>\
   </div>\
   <div class="collapse" id="collapse-settings">\
     <div class="form-group">\
@@ -194,7 +194,7 @@ ParticleFire.Templates.IOEditType_status = '
       <div class="col-sm-10">\
         <input type="input" class="form-control" data-error-method="growl" id="settings-onLabel" name="settings.onLabel" value="<%= onLabel %>" aria-describedby="onLabel-help">\
         <span id="onLabel-help" class="help-block">\
-          The label to display on the toggle switch when the device status is \'active\'.\
+          The label to display on the toggle switch when the device status is "active".\
         </span>\
       </div>\
     </div>\
@@ -203,11 +203,10 @@ ParticleFire.Templates.IOEditType_status = '
       <div class="col-sm-10">\
         <input type="input" class="form-control" data-error-method="growl" id="settings-offLabel" name="settings.offLabel" value="<%= offLabel %>" aria-describedby="offLabel-help">\
         <span id="offLabel-help" class="help-block">\
-          The label to display on the toggle switch when the device status is \'inactive\'.\
+          The label to display on the toggle switch when the device status is "inactive".\
         </span>\
       </div>\
     </div>\
   </div>\
 </div>\
 ';
-
