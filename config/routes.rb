@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get 'ios/:id/status', to: 'ios#status'
   post 'ios/:id', to: 'ios#trigger'
 
+  put 'verify_pin', to: 'application#verify_pin'
+
 end

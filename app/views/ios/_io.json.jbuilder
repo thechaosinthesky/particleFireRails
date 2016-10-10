@@ -1,3 +1,3 @@
-json.extract! io, :id, :name, :io_type, :created_at, :updated_at
+json.extract! io, :id, :name, :io_type, :device_id, :created_at, :updated_at
 
 json.settings JSON.parse(io.settings)

@@ -37,12 +37,15 @@ ParticleFire.Views.IOEdit = ParticleFire.Views.Modal.extend({
     if(!this.model.isNew()){
       $('.modal.in .btn-delete').removeClass('hidden');
       device_id = this.model.get('device_id');
-      this.renderIOFields(this.model.get('type'));
+      this.renderIOFields(this.model.get('io_type'));
     }
 
     this.model.defaultValidation = this.model.validation;
     _.bindFormView(this);
     Backbone.Validation.bind(this);
+
+    console.log("WHAHA");
+    console.log(device_id);
 
     this.deviceDropdown = new BootstrapSelect({el: '.modal.in .io-devices-select', value: device_id, values: ParticleFire.App.user.devices.toJSON(), labelAttribute:"external_id", valueAttribute:"id"});
     this.typesDropdown = new BootstrapSelect({el: '.modal.in .io-types-select', values: this.model.io_types, value: this.model.get("io_type"), valueAttribute:"name"});
@@ -51,6 +54,7 @@ ParticleFire.Views.IOEdit = ParticleFire.Views.Modal.extend({
   },
 
   renderIOFields: function(typeName) {
+    console.log(typeName);
     var type = _.find(this.model.io_types, function(type){
       return type.name == typeName;
     });
@@ -127,7 +131,7 @@ ParticleFire.Views.IOEdit = ParticleFire.Views.Modal.extend({
     if(confirm("Are you sure you want to delete this IO")){
       this.model.destroy({
         success: function(model, res){
-          // that.profileView.collection.add(model, {merge:true});
+          that.profileView.collection.remove(model);
           $.growl.notice({message: "Succesfully deleted."});
           that.close();
         },

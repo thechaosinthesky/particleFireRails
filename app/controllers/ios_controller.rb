@@ -1,7 +1,19 @@
 class IosController < AuthenticatedController
-  load_and_authorize_resource :profile
-  load_and_authorize_resource :io, :through => :profile
-  # before_action :set_io, only: [:show, :edit, :update, :destroy]
+  # load_and_authorize_resource :profile
+  # load_and_authorize_resource :io, :through => :profile
+
+  before_action :set_io, :except => [:index, :new, :create]
+
+  load_resource :profile, :only => [:index, :new, :create]
+  load_resource :io, :through => :profile, :only => [:index, :new, :create]
+
+  authorize_resource :profile, :only => [:index, :new, :create]
+  authorize_resource :io
+
+  # load_and_authorize_resource :profile, :only => [:index, :new, :create]
+  # load_and_authorize_resource :io, :through => :profile, :only => [:index, :new, :create]
+
+  
 
   # GET /ios
   # GET /ios.json
@@ -67,11 +79,13 @@ class IosController < AuthenticatedController
   end
 
   def status
-    
+    particle_device = Particle::Device.new(external_id: @io.device.external_id, settings: @io.settings_json)
+    render json: particle_device.get_status
   end
 
   def trigger
-    
+    particle_device = Particle::Device.new(external_id: @io.device.external_id, settings: @io.settings_json)
+    render json: particle_device.trigger(params["actionFunction"])
   end
 
   private

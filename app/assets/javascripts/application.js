@@ -18,6 +18,7 @@
 //= require backbone
 //= require backbone.validation.min
 //= require bootstrap.min
+//= require bootstrap-switch.min
 //= require particleFire
 //= require_tree .
 //

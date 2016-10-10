@@ -74,8 +74,8 @@ ParticleFire.Templates.PinVerification = '\
   <div class="form-group">\
     <label id="user-pin-label" for="profile-name" class="col-sm-2 control-label" onclick="$(\'#user-pin\').focus()">Pin:</label>\
     <div class="col-sm-10">\
-      <input type="tel" data-error-method="growl" class="form-control" id="userPinReal" name="pin" required="" maxlength="4" data-number-mask="telephone" />\
-      <input type="password" class="form-control" id="userPin" name="pinFake" maxlength="4"  tabindex="-1" />\
+      <input type="tel" autocomplete="off" data-error-method="growl" class="form-control" id="userPinReal" name="pin" required="" maxlength="4" data-number-mask="telephone" />\
+      <input type="password" autocomplete="off" class="form-control" id="userPin" name="pinFake" maxlength="4"  tabindex="-1" />\
     </div>\
   </div>\
 </form>\

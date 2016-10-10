@@ -37,17 +37,12 @@ ParticleFire.Views.PinVerification = ParticleFire.Views.Modal.extend({
   submitVerification: function() {
     var that = this;
 
-    console.log('submitting');
-    console.log(this.model);
-  	
-
-
     this.model.validate();
     if(this.model.isValid()){
       this.model.save([], {
-        url: '/account/verifyPin',
+        url: '/verify_pin',
         complete: function(res){
-          if(res.status == 200){
+          if(res.status == 204){
             that.trigger("pinVerification:success");
             that.close();
           }

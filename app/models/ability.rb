@@ -10,11 +10,14 @@ class Ability
     end
 
     can [:read, :update], User, {:id => user.id}
+    
     can :manage, Device, {:user_id => user.id}
+
     can :create, Profile
     can [:read, :update, :delete], Profile, {:id => user.profile_ids}
+
     can :create, Io
-    can [:read, :update, :delete], Io, {:device_id => user.device_ids}
+    can :manage, Io, {:device_id => user.device_ids}
 
     #
     # The first argument to `can` is the action you are giving the user

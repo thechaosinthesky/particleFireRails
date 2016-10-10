@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'mysql2'
@@ -29,9 +28,14 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'oauth2'
+gem 'oauth2-client'
+gem 'rest-client'
+gem 'httplog'
 gem 'devise'
 gem 'cancancan'
 
+gem "font-awesome-rails"
 gem 'backbone-rails'
 gem 'underscore-rails'
 
